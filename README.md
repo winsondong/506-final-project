@@ -30,7 +30,7 @@ Modeling data:
 
 Visualizing the data: 
  - Histogram - Show price distribution.
-    ![My Plot](graphs/histogram.png)
+    ![My Plot](graphs/Histogram.png)
 
 
 
