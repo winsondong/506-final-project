@@ -26,14 +26,34 @@ Data Collection:
     - Reviews and ratings
 
 Modeling data:
- - Random Forest (Supervised Learning) 
+ - Decision Tree Regressor
 
 Visualizing the data: 
  - Histogram - Show price distribution.
+    ![My Plot](graphs/histogram.png)
+
+
+
  - Scatter Plot - Compare price vs. bedrooms/bathrooms.
+ ![My Plot](graphs/scatter_plot.png)
+
+
+
  - Heatmap - Show feature correlations.
+![My Plot](/graphs/Heatmap.png)
+
+
+
+
  - Map Plot - Visualize prices across NYC neighborhoods.
+ ![My Plot](graphs/map_plot.png)
+
+
+
  - Bar Chart - Highlight key features affecting price.
+![My Plot](graphs/bar_chart.png)
+
+
 
 Test Plan:
  - Split the dataset into training (70%), validation (10%), and testing (20%) sets.
