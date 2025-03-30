@@ -1,5 +1,9 @@
 # 506-final-project
 
+Video Presentation:
+ - https://www.youtube.com/watch?v=lRojpqXUKZg
+ 
+
 Project Proposal: 
  - Predicting Airbnb Prices in NYC
 
