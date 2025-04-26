@@ -126,16 +126,6 @@ The dataset used for this project contains detailed information about Airbnb lis
   - `price`, `security_deposit`, `cleaning_fee`, `extra_people`
   - The `price` is the target variable we aim to predict.
 
-## Initial Modeling Phase
-
-During the initial modeling phase, we experimented with several different regression techniques to predict Airbnb prices, including Linear Regression, Decision Tree Regression, and Random Forest Regression. Linear Regression served as a simple baseline model, assuming a purely linear relationship between the features and the price. Decision Tree Regression introduced non-linearity by recursively splitting the data based on feature values to minimize prediction errors. Finally, Random Forest Regression, an ensemble method that builds and averages multiple decision trees, was tested to improve predictive accuracy and model robustness.
-
-Random Forest Regression was the best-performing model based on evaluation metrics like Mean Squared Error (MSE) and R² score. We chose to focus on Random Forest for several important reasons. First, Random Forest can naturally capture complex, non-linear relationships between features and target variables without requiring explicit transformations, giving it a major advantage over simple Linear Regression. Second, because it averages predictions across many different decision trees, Random Forest is more robust against overfitting compared to a single Decision Tree model, which can easily become overly specialized to the training data.
-
-Another major benefit of Random Forest is that it provides built-in measures of feature importance, helping us interpret which features—such as location, number of bedrooms, or available amenities—have the greatest impact on pricing. This interpretability was important not only for building a good model but also for drawing practical insights for hosts and renters. Additionally, Random Forest handles both numerical and categorical features well after basic encoding and is relatively stable compared to more sensitive models like Gradient Boosting Machines. It does not require intensive hyperparameter tuning to achieve good performance, making it an ideal choice during the early stages of modeling. Furthermore, Random Forest is scalable, capable of parallelizing training across multiple CPU cores, which makes it suitable for handling a dataset of this size.
-
-Based on these advantages and early experiments, where Random Forest achieved a lower MSE and a higher R² score than both Linear Regression and Decision Tree Regression, we decided to continue refining and optimizing the Random Forest model for our final evaluation phase.
-
 ## Data Processing
 
 The dataset used in this project was compiled from multiple publicly accessible sources. Because it was a combination of different datasets, extensive preprocessing was necessary before the data could be used for model training.
@@ -153,13 +143,30 @@ The `neighborhood_group` column presented challenges due to inconsistencies in n
 
 ## Data Modeling
 
-For modeling, we decided to explore multiple approaches to predict the target variable, `price`, based on the available features. We tested three different regression methods to determine which would perform the best.
+Our goal was to predict Airbnb listing price based on a rich set of host, property, location, and review features. To find the best predictive model for this dataset, we tested three regression approaches: Linear Regression, Decision Tree Regression, and Random Forest Regression.
 
-We first implemented Decision Tree Regression, which recursively splits the data based on feature values to minimize the Mean Squared Error (MSE). Each split was made with the goal of achieving the lowest possible MSE, and splits continued until stopping criteria were met. For this model, we tuned parameters such as `max_depth` ([3, 5, 7, 10, None]) and `min_samples_split` ([2, 5, 10]). However, the decision tree model yielded an MSE of around 11,000, indicating poor generalization and suboptimal performance.
+We started with Decision Tree Regression, which splits the data based on feature values to minimize prediction errors. While tuning hyperparameters such as max_depth and min_samples_split, we observed that the decision tree tended to overfit the training data, achieving an MSE of around 11,000. This poor generalization made it unsuitable for our dataset, where factors like location, room type, and amenities interact in complex, non-linear ways.
 
-Next, we tested a Linear Regression model, which fits a straight line to minimize the MSE between predicted and actual values. This approach improved results compared to the decision tree, with an MSE of approximately 7,000. However, it still struggled to capture the non-linear relationships present in the data.
+We then tested Linear Regression, a simple model that assumes a purely linear relationship between features and price. Although Linear Regression reduced the MSE to around 7,000 compared to Decision Trees, it struggled with our dataset’s non-linear relationships—such as how a penthouse in Manhattan and a studio in Brooklyn might have wildly different pricing patterns even if some features seem similar numerically.
 
-Finally, we implemented a Random Forest Regressor, an ensemble method that constructs multiple decision trees using different subsets of the training data and averages their outputs to improve performance. This approach mitigates overfitting and captures complex patterns more effectively. The hyperparameters we used included `n_estimators=200`, `max_depth=None`, `min_samples_leaf=1`, `max_features='sqrt'`, and `min_samples_split=2`. The Random Forest model significantly outperformed the others, achieving an MSE of approximately 0.136 and an R² score of about 0.71, suggesting that the model explained 71% of the variance in Airbnb listing prices.
+Finally, we implemented Random Forest Regression, an ensemble method that constructs multiple decision trees on different subsets of the data and averages their outputs. Using hyperparameters such as n_estimators=200, max_depth=None, and max_features='sqrt', the Random Forest model achieved an MSE of approximately 0.136 and an R² score of about 0.71. This strong performance demonstrated its ability to model the complex interactions in our dataset.
+
+Random Forest was particularly well-suited for our Airbnb listings dataset for several reasons:
+
+- Capturing complex patterns: Listing prices in New York City are influenced by a wide range of interacting features—like room type, location, availability, and review scores—which Random Forest can model effectively without requiring manual interaction terms.
+
+- Robustness to noise: Our dataset includes messy or missing data (e.g., incomplete reviews, missing descriptions). Random Forest handles such inconsistencies better than single models like Decision Trees or Linear Regression.
+
+- Handling a mix of feature types: The dataset includes a combination of numerical features (e.g., beds, accommodates) and categorical features (e.g., room_type, neighbourhood_group_cleansed). Random Forests naturally manage this variety with minimal preprocessing.
+
+- Feature importance for insights: Random Forest provides built-in feature importance scores, helping us identify key drivers of price such as the number of beds, review ratings, availability, and property type, offering actionable insights for both hosts and platform managers.
+
+- Scalability: Given the dataset size (~28,000 rows), Random Forest’s parallelization abilities helped maintain reasonable training times without sacrificing performance.
+
+- Minimal hyperparameter sensitivity: Unlike more sensitive models like Gradient Boosting Machines, Random Forest achieved strong results with straightforward hyperparameter tuning, making it efficient during the model selection phase.
+
+Given these strengths—and the superior evaluation results—we chose Random Forest Regression as the final model to refine and optimize for our Airbnb price prediction task.
+
 
 ---
 
