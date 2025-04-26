@@ -213,10 +213,10 @@ Visualizing the data:
 ![My Plot](graphs/Top20.png)
 
  - Price Distribution - .
-![My Plot](graphs/price_distribution.png)
+![My Plot](graphs/Price_distribution.png)
 
  - Actual Price vs Predicted Price - .
-![My Plot](graphs/actual_predicted.png)
+![My Plot](graphs/Actual_Predicted.png)
 
  - Amenities Tree Map - .
 ![My Plot](graphs/Amenities_treemap.png)
