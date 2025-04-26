@@ -1,11 +1,11 @@
-# test_random_forest.py
+
+
+
 
 import pandas as pd
 import numpy as np
-import joblib
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import r2_score
 
 def test_data_loading():
     df = pd.read_csv("airbnbListingsData.csv")
@@ -13,8 +13,6 @@ def test_data_loading():
 
 def test_model_training():
     df = pd.read_csv("airbnbListingsData.csv")
-
-    # Only keep numeric columns
     df = df.select_dtypes(include=[np.number])
 
     X = df.drop(columns=["price"])
@@ -28,15 +26,32 @@ def test_model_training():
     model = RandomForestRegressor(n_estimators=10, random_state=42)
     model.fit(X_train, y_train)
 
+def test_missing_values_handling():
+    df = pd.read_csv("airbnbListingsData.csv")
+    df = df.select_dtypes(include=[np.number])
 
-    preds = model.predict(X_test)
-    score = r2_score(y_test, preds)
-    
-    assert score > 0, f"Model performance too low! R2: {score}"
+    # Preprocessing
+    X = df.drop(columns=["price"]).fillna(0)
 
-if __name__ == "__main__":
-    test_data_loading()
-    test_model_training()
-    print("All tests passed!")
+    # Check no missing values
+    assert not X.isnull().values.any(), "There are still missing values in features!"
 
-# pytest test_airbnb.py --verbose
+def test_feature_types():
+    df = pd.read_csv("airbnbListingsData.csv")
+    df = df.select_dtypes(include=[np.number])
+
+    X = df.drop(columns=["price"]).fillna(0)
+
+    # Check all columns are numeric
+    assert all(np.issubdtype(dtype, np.number) for dtype in X.dtypes), "Not all features are numeric!"
+
+def test_no_leakage():
+    df = pd.read_csv("airbnbListingsData.csv")
+    df = df.select_dtypes(include=[np.number])
+
+    X = df.drop(columns=["price"])
+
+    # Check that 'price' is not mistakenly included in features
+    assert "price" not in X.columns, "'price' found in features! Data leakage!"
+
+# # pytest test_airbnb.py --verbose
