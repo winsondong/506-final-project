@@ -6,7 +6,7 @@
 install:
 	pip install -r requirements.txt
 
-# run your combined RF + XGB script
+# run RandomForest model
 run:
 	python Final_project_RandomForest.py
 
