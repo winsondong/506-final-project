@@ -1,0 +1,10 @@
+pandas
+numpy
+scikit-learn
+rapidfuzz
+matplotlib
+seaborn
+plotly
+jupyter
+pytest
+joblib
