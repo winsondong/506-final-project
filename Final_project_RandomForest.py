@@ -148,76 +148,9 @@ print("Best Parameters:", grid_search.best_params_)
 print("RMSE (log):", np.sqrt(mean_squared_error(y_test, preds)))
 print("R² (log):", r2_score(y_test, preds))
 
+# VISUALIZATIONS #
+def train_for_visualizations():
+    return best_rf, X_train, X_test, y_train, y_test, df
 
-# In[8]:
-
-
-# ----------- Implement visualization ---------------
-
-import matplotlib.pyplot as plt
-import seaborn as sns
-import numpy as np
-from sklearn.model_selection import learning_curve
-from sklearn.metrics import mean_squared_error, r2_score
-
-### ACTUAL VS PREDICTED ###
-print("ACTUAL VS PREDICTED")
-best_preds = best_rf.predict(X_test)
-plt.figure(figsize=(6, 6))
-plt.scatter(np.expm1(y_test), np.expm1(best_preds), alpha=0.5)
-plt.plot([np.expm1(y.min()), np.expm1(y.max())], [np.expm1(y.min()), np.expm1(y.max())], 'r--')
-plt.xlabel("Actual Price ($)")
-plt.ylabel("Predicted Price ($)")
-plt.title("Actual vs. Predicted")
-plt.grid(True)
-plt.tight_layout()
-plt.show()
-
-### FEATURE IMPORTANCES ###
-print("FEATURE IMPORTANCES")
-importances = best_rf.feature_importances_
-idx = np.argsort(importances)[-20:]  # top 20
-plt.figure(figsize=(8, 8))
-plt.barh(X.columns[idx], importances[idx])
-plt.xlabel("Importance")
-plt.title("Top 20 Feature Importances")
-plt.grid(True)
-plt.tight_layout()
-plt.show()
-
-### LEARNING CURVE ###
-print("LEARNING CURVE")
-train_sizes, train_scores, val_scores = learning_curve(
-    best_rf, X, y, cv=5, scoring="neg_mean_squared_error",
-    train_sizes=np.linspace(0.1, 1.0, 5), n_jobs=-1)
-
-train_rmse = np.sqrt(-train_scores.mean(axis=1))
-val_rmse = np.sqrt(-val_scores.mean(axis=1))
-
-plt.figure(figsize=(8, 6))
-plt.plot(train_sizes, train_rmse, 'o-', label="Train")
-plt.plot(train_sizes, val_rmse, 'o-', label="Validation")
-plt.xlabel("Training Set Size")
-plt.ylabel("RMSE (log-price)")
-plt.title("Learning Curve")
-plt.legend()
-plt.grid(True)
-plt.tight_layout()
-plt.show()
-
-### PRICE DISTRIBUTION BEFORE AND AFTER LOG ###
-print("PRICE DISTRIBUTION BEFORE AND AFTER LOG")
-raw_price = np.expm1(df['log_price'])
-
-fig, axes = plt.subplots(1, 2, figsize=(14, 5))
-sns.histplot(raw_price, bins=50, kde=True, ax=axes[0])
-axes[0].set_title("Raw Price ($)")
-axes[0].set_xlabel("Price")
-
-sns.histplot(df['log_price'], bins=50, kde=True, ax=axes[1])
-axes[1].set_title("Log-Transformed Price")
-axes[1].set_xlabel("Log(1 + Price)")
-
-plt.tight_layout()
-plt.show()
-
+if __name__ == "__main__":
+    rf, X_train, X_test, y_train, y_test, df = train_for_visualizations()
