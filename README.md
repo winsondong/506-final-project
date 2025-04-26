@@ -65,9 +65,34 @@ Visualizing the data:
 
 
 Description of data processing:
- - We first read the data then start cleaning it by dropping unnecessary columns. We dropped columns pertaining to host information that does not assist in the predictive model such as host’s bio, profile photo, etc.  We then checked for missing values in columns, then filled them with values in numeric columns being replaced by the mean of the rest of the values in the column, and values in categorical columns by dropping the row.
- - The next step of processing includes label encoding — such as changing boolean values in columns to binary, or strings to integer representations. Amenities have also been split such that each amenity offered is its own independent feature with values true or false then get converted to binary. 
 
+The dataset used in this project was compiled from multiple publicly accessible sources. Because it was a compilation of different datasets, extensive preprocessing was required before the data could be used for training.
+
+Handling Missing Values:
+
+The first step involved managing missing (null) values. The dataset contains both numerical and categorical columns, each requiring a different treatment:
+ - Numerical Columns: Missing values were replaced with the mean of the respective column to minimize distortion of the dataset.
+ - Categorical Columns: Rows with missing values in categorical columns were removed entirely, as there was no reliable way to impute these fields without introducing bias.
+
+Additionally, we dropped several columns deemed irrelevant or redundant for model training, such as:
+ - host_has_profile_pic
+ - calculated_host_listings_count_private_rooms
+ - n_host_verifications
+These columns offered little to no predictive value and would have introduced noise to the model.
+
+Encoding Categorical Data:
+
+Categorical features needed to be transformed into numerical formats suitable for machine learning models. One of the most complex columns to process was the amenities column, which contained free-form text listing the amenities for each Airbnb listing. The variability in formatting and phrasing (e.g., "TV with HBOMax" vs. "HD TV with streaming services") made traditional label encoding unsuitable.
+
+To address this, we:
+
+1. Generated a frequency distribution of the top 20 most common words across all entries.
+2. Selected 15 distinct, high-frequency amenities that were likely to influence pricing.
+3. Created binary indicator columns (e.g., wifi, tv, shampoo, etc.) to represent the presence or absence of these amenities in each listing.
+
+Standardizing Location Data:
+
+The neighborhood_group column initially posed challenges due to inconsistencies in naming conventions and granularity. After label encoding, we observed overlap and inconsistency among certain neighborhood names. To mitigate this, we standardized the values using a normalization function similar to the one applied to amenities. The cleaned and normalized location data was then one-hot encoded for use in the model.
 
 Description of data modeling:
  - For modeling, we decided to use multiple approaches to predict the target values based on the dataset. We tested three different modeling methods to identify which performed the best.
