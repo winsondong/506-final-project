@@ -109,13 +109,17 @@ Description of data modeling:
 
  - Finally, we tested the Random Forest Regressor, which is an ensemble method that builds multiple decision trees using different subsets of the training data. This approach reduces overfitting and improves predictive accuracy by aggregating the results from multiple trees. We used the following hyperparameters for the model:
 
-    - n_estimators: [100, 200] (the number of trees in the forest)
+    - n_estimators: 200 (the number of trees in the forest)
 
-    - max_depth: [10, 20] (the maximum depth of each tree)
+    - max_depth: None (the maximum depth of each tree)
 
-    - min_samples_split: [2, 5] (the minimum number of samples required to split a node)
+    - min_samples_leaf: 1 (the minimum number of samples required in a leaf)
+    
+    - max_features: 'sqrt' (the maximum number of features)
+  
+    - min_samples_split: 2 (the minimum number of samples to split a node)
 
- - For the Random Forest model, we achieved an MSE of around 5,000 and an R² score of approximately 0.64, indicating that it explained about 64% of the variance in the target variable.
+ - For the Random Forest model, we achieved an MSE of around 0.136 and an R² score of approximately 0.71, indicating that our predictions were very accurate and explained about 71% of the variance in the target variable.
 
 
 Results: 
