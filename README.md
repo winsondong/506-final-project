@@ -209,3 +209,27 @@ Visualizing the data:
 ![My Plot](graphs/bar_chart.png)
 
 
+ - Top 20 Feature Importances - .
+![My Plot](graphs/Top20.png)
+
+ - Learning Curve - .
+![My Plot](graphs/Learning_curve.png)
+
+ - Price Distribution - .
+![My Plot](graphs/Price_distribution.png)
+
+ - Actual Price vs Predicted Price - .
+![My Plot](graphs/Actual_predicted.png)
+
+ - Amenities Tree Map - .
+![My Plot](graphs/Amenities_treemap.png)
+
+ - MSE Amenities - .
+![My Plot](graphs/MSE_amenities.png)
+
+ - MSE Bedrooms - .
+![My Plot](graphs/MSE_bedrooms.png)
+
+ - Linked Scatter Matrix - .
+![My Plot](graphs/linked_scatter_matrix.png)
+
