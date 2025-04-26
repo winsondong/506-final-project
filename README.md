@@ -123,15 +123,26 @@ Description of data modeling:
 
 
 Results: 
- - We evaluated three different regression models on our Airbnb pricing dataset:
-      - Linear Regression achieved a Mean Squared Error (MSE) of approximately 9,000, but struggled to capture complex patterns in the data.
 
-      - Decision Tree Regression resulted in a higher MSE of 11,000, with a low accuracy score of 0.04, indicating poor generalization.
+To evaluate model performance, we primarily used Mean Squared Error (MSE) and Root Mean Squared Error (RMSE) as scoring metrics:
 
-      - Random Forest Regression performed the best, with a significantly lower MSE of 5,000 and an R² score of 0.64, suggesting that it was able to explain 64% of the variance in the data.
+ - MSE measures the average squared difference between predicted and actual values. Since this value is squared, large errors have a disproportionately higher impact. Our goal was to minimize the MSE, ideally to a value below 1.
 
- - Based on these preliminary results, we plan to continue optimizing and refining the Random Forest model for our final evaluation.
+ - RMSE, the square root of MSE, provides a more interpretable metric in the same units as the target variable. Once MSE was sufficiently low, RMSE became our preferred metric for gauging improvements.
 
+In our final model, we achieved:
+
+ - MSE: 0.136
+
+ - RMSE: 0.368
+
+These results indicate a strong performance in predicting prices.
+
+We also evaluated our model using the R² score, which measures the proportion of variance in the target variable (price) that is explained by the model. Among all models tested, Random Forest Regression performed the best, achieving:
+
+ - R² Score: 0.71
+
+ - This suggests that the model was able to explain approximately 71% of the variance in Airbnb pricing
 
 Test Plan:
  - Split the dataset into training (70%), validation (10%), and testing (20%) sets.
