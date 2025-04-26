@@ -1,6 +1,71 @@
-# 506-final-project
+# Airbnb Price Prediction
 
-Video Presentation:
+## How to Build and Run the Code
+
+This project uses a Makefile to install dependencies, run the model, and generate visualizations.
+
+First, make sure you have Python installed. For this project we used, Python 3.9.9
+  ``` bash
+  brew install python@3.9.9
+  ```
+
+1. Clone the repository.
+   ``` bash
+   git clone git@github.com:winsondong/506-final-project.git
+   ```
+2. Navigate into the project folder
+   ``` bash
+   cd 506-final-project
+   ```
+3. Create and activate a virtual environment:
+   ``` bash
+   python3 -m venv venv
+   source venv/bin/activate  # Mac/Linux
+   venv\Scripts\activate     # Windows
+   ```
+5. Run the Makefile to install dependencies, train the model, and generate visualizations:
+    ```bash
+    make all
+    ```
+
+This will:
+- Install all dependencies listed in `requirements.txt`
+- Run the Random Forest model (`Final_project_RandomForest.py`)
+- Generate plots (`visualizing.py`)
+
+## Individual Commands
+
+You can also run tasks separately:
+
+- Install dependencies:
+    ```bash
+    make install
+    ```
+
+- Run the model:
+    ```bash
+    make run
+    ```
+
+- Regenerate visualizations:
+    ```bash
+    make visualize
+    ```
+
+- Clean up Python cache files:
+    ```bash
+    make clean
+    ```
+
+## Project Structure
+
+- `Final_project_RandomForest.py` — Code to train and evaluate the Random Forest model.
+- `visualizing.py` — Code to generate visualizations of the results.
+- `requirements.txt` — Python dependencies.
+- `Makefile` — Automation for building, running, and cleaning the project.
+
+
+## Video Presentation:
  - https://www.youtube.com/watch?v=lRojpqXUKZg
 
 ## Project Proposal, Description, and Goals:
