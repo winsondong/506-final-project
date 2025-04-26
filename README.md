@@ -216,7 +216,7 @@ Visualizing the data:
 ![My Plot](graphs/price_distribution.png)
 
  - Actual Price vs Predicted Price - .
-![My Plot](graphs/Actual_predicted.png)
+![My Plot](graphs/actual_predicted.png)
 
  - Amenities Tree Map - .
 ![My Plot](graphs/Amenities_treemap.png)
