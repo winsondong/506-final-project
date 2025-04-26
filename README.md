@@ -209,8 +209,9 @@ Visualizing the data:
 ![My Plot](graphs/bar_chart.png)
 
 
- - Top 20 Feature Importances - .
+ - Top 20 Feature Importances - Bar chart of the top 20 features sorted by the Random Forest’s built-in importance.
 ![My Plot](graphs/Top20.png)
+ - Observations: 
 
  - Price Distribution - .
 ![My Plot](graphs/Price_distribution.png)
@@ -218,9 +219,9 @@ Visualizing the data:
  - Actual Price vs Predicted Price - .
 ![My Plot](graphs/Actual_Predicted.png)
 
- - Amenities Tree Map - .
+ - Amenities Tree Map - Tree map of our normalized amenities.
 ![My Plot](graphs/Amenities_treemap.png)
-
+ - Observations: We see 13 amenities that are the most prevalent; the most notable ones being wifi, oven, conditioner, shampoo, oven, and workspace. Niche amenities like gym, children_amenities, and sound_system have smaller blocks (meaning lower prevalence) but noticeably higher average prices, suggesting strong impact on value. 
  - MSE Amenities - .
 ![My Plot](graphs/MSE_amenities.png)
 
