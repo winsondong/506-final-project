@@ -212,11 +212,8 @@ Visualizing the data:
  - Top 20 Feature Importances - .
 ![My Plot](graphs/Top20.png)
 
- - Learning Curve - .
-![My Plot](graphs/Learning_curve.png)
-
  - Price Distribution - .
-![My Plot](graphs/Price_distribution.png)
+![My Plot](graphs/price_distribution.png)
 
  - Actual Price vs Predicted Price - .
 ![My Plot](graphs/Actual_predicted.png)
