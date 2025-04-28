@@ -228,7 +228,7 @@ From $400 to $1000, we see that almost every single listing was underpredicted.
 
  - MSE Amenities - An interactive 3-dimensional surface of our MSE on amenity_count.
 ![My Plot](graphs/MSE_amenities.png)
-  - Observations: This interactive plot shows how sensitive the error is to a given w/b when modeling just one feature. We see that our MSE is lowest and most optimal where the value of w ranges from 0.2 to -0.2. The absolute lowest point of MSE on the graph is where b is about 3.5 which tells us that tells us that our baseline price is about $32/night if no amenities are counted. Combined with a broad/flat shape in b, this confirms that amenity_count alone has a weak impact on our predictions. Even a model that completely ignores amenity_count can perform almost just as well. This allows us to conclude that the baseline price is almost always more impactful than any unique amenities offered.
+  - Observations: This interactive plot shows how sensitive the error is to a given w/b when modeling just one feature. We see that our MSE is lowest and most optimal where the value of w ranges from -0.2 to 0.2. The absolute lowest point of MSE on the graph is where b is about 3.5 which tells us that tells us that our baseline price is about $32/night if no amenities are counted. Combined with a broad/flat shape in b, this confirms that amenity_count alone has a weak impact on our predictions. Even a model that completely ignores amenity_count can perform almost just as well. This allows us to conclude that the baseline price is almost always more impactful than any unique amenities offered.
 
  - MSE Bedrooms - An interactive 3-dimensional surface of our MSE on bedrooms.
 ![My Plot](graphs/MSE_bedrooms.png)
