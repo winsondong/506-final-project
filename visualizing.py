@@ -122,8 +122,21 @@ def plot_learning_curve_model(model, X_train, y_train):
 def plot_price_distribution(df):
     raw = np.expm1(df['log_price'])
     fig, axes = plt.subplots(1,2,figsize=(14,5))
-    sns.histplot(raw, bins=50, kde=True, ax=axes[0]).set(title="Raw Price ($)")
-    sns.histplot(df['log_price'], bins=50, kde=True, ax=axes[1]).set(title="Log-Transformed Price")
+
+    # Raw price histogram
+    sns.histplot(raw, bins=50, kde=True, ax=axes[0])
+    axes[0].set(
+        title="Raw Price ($)",
+        xlabel="Price ($)",
+        ylabel="Count"
+    )
+    # Log-transformed price histogram
+    sns.histplot(df['log_price'], bins=50, kde=True, ax=axes[1])
+    axes[1].set(
+        title="Log-Transformed Price",
+        xlabel="Log(1 + Price)",
+        ylabel="Count"
+    )
     plt.tight_layout()
     plt.show()
 
