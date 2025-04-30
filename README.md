@@ -241,7 +241,6 @@ From $400 to $1000, we see that almost every single listing was underpredicted.
  - Linked Scatter Matrix - A linked scatter‐matrix showing every pairwise scatter plot with points colored by room_type.
 ![My Plot](graphs/linked_scatter_matrix.png)
  - Notable observations:
-  - Bathrooms vs Bedrooms: We see a somewhat overall upward trend meaning that more bedrooms means more bathrooms. This makes sense.
   - Number of Reviews vs. Amenity Count: Although there is no strong notable linear pattern, we are able to observe that the highest number of reviews is when the amenity count is around 5 to 7. Overall, we see that listings with a lot of amenities often cluster at moderate review counts. 
   - ERROR: Comparing with error gives us detailed insight on which features struggle the most.
     - Error vs. Amenity Count: Out of the 4 chosen features in this matrix, we can see that amenity count has the highest variance in error. The graph is the most scattered compared to the other 3, and least predictable. This indicates that our model not only underpredicts drastically for listings with a lot of amenities (the most drastic being from range 5 to 8), but also struggles with amenities in general (although not so much only when amenity count is around 0~2).
