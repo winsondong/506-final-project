@@ -240,3 +240,6 @@ From $400 to $1000, we see that almost every single listing was underpredicted.
     - Error vs. Amenity Count: Out of the 4 chosen features in this matrix, we can see that amenity count has the highest variance in error. The graph is the most scattered compared to the other 3, and least predictable. This indicates that our model not only underpredicts drastically for listings with a lot of amenities (the most drastic being from range 5 to 8), but also struggles with amenities in general (although not so much only when amenity count is around 0~2).
     - Error vs. Number of Reviews: When number of reviews is close to 0, we have the greatest variance in error (over/underpredictions). When the number of reviews exceeds 500, we have the least variance in error, as the points skew. The skew of the graph, combined with our mentioned observations, allows us to state that the more reviews a listing has, the closer we get to 0 error -- smaller range of over/under-predictions.
     - Error vs. Bedrooms/Bathrooms: There is no strong noticeable pattern. What we can observe, however, is that overall, listings with more bathrooms tend to have slightly less drastic underpredictions.
+
+## Presentation:
+<video controls src="CS506 Final Project.mp4" title="Title"></video>
