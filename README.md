@@ -182,31 +182,8 @@ These results indicate strong predictive performance.
 We also evaluated the model using the R² score, which measures the proportion of variance in the target variable explained by the model. The Random Forest Regression model achieved an R² score of approximately 0.71, meaning it was able to explain around 71% of the variability in
 
 
-
-Visualizing the data: 
- - Histogram - Show price distribution.
-    ![My Plot](graphs/Histogram.png)
-
-
-
- - Scatter Plot - Compare price vs. bedrooms/bathrooms.
- ![My Plot](graphs/scatter_plot.png)
-
-
-
- - Heatmap - Show feature correlations.
-![My Plot](/graphs/Heatmap.png)
-
-
-
-
- - Map Plot - Visualize prices across NYC neighborhoods.
- ![My Plot](graphs/map_plot.png)
-
-
-
- - Bar Chart - Highlight key features affecting price.
-![My Plot](graphs/bar_chart.png)
+---
+## Visualizing the data: 
 
 
  - Top 20 Feature Importances - Bar chart of the top 20 features sorted by the Random Forest’s built-in importance.
@@ -216,6 +193,23 @@ Visualizing the data:
  - Price Distribution - Raw price distribution histogram vs Log transformed price distribution.
 ![My Plot](graphs/Price_distribution.png)
   - Observations: We knew that raw prices would be heavily skewed to the right due to the nature of AirBnb prices. Therefore, we had decided that log transforming the price would be necessary in order to have a more normalized distribution of prices. We see after the transformation that the distribution is much more bell shaped as we were hoping. 
+
+
+ - Bar Chart - Highlight key features affecting price.
+![My Plot](graphs/bar_chart.png)
+
+
+ - Scatter Plot - Compare price vs. bedrooms/bathrooms.
+ ![My Plot](graphs/scatter_plot.png)
+
+
+ - Heatmap - Show feature correlations.
+![My Plot](/graphs/Heatmap.png)
+
+
+ - Map Plot - Visualize prices across NYC neighborhoods.
+ ![My Plot](graphs/map_plot.png)
+
 
  - Actual Price vs Predicted Price - A scatterplot of each listings actual price vs our models predicted price.
 ![My Plot](graphs/Actual_Predicted.png)
