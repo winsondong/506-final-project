@@ -242,4 +242,6 @@ From $400 to $1000, we see that almost every single listing was underpredicted.
     - Error vs. Bedrooms/Bathrooms: There is no strong noticeable pattern. What we can observe, however, is that overall, listings with more bathrooms tend to have slightly less drastic underpredictions.
 
 ## Presentation:
-<video controls src="CS506 Final Project.mp4" title="Title"></video>
+"CS506 Final Project.mp4"
+or 
+https://youtu.be/i0HKWSJIwBM
