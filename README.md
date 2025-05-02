@@ -202,12 +202,17 @@ Given these strengths—and the superior evaluation results—we chose Random Fo
 
 To evaluate model performance, we primarily used the Mean Squared Error (MSE) and Root Mean Squared Error (RMSE) metrics. MSE measures the average squared difference between predicted and actual values, penalizing larger errors more heavily. Our goal was to minimize the MSE, ideally to a value close to zero. RMSE, the square root of MSE, provides an interpretable metric in the same units as the target variable (price), making it easier to assess prediction quality.
 
+
+
 For our final Random Forest model, we achieved:
 - **MSE:** 0.136
 - **RMSE:** 0.368
 
+<img width="835" alt="Screenshot 2025-05-01 at 8 26 47 PM" src="https://github.com/user-attachments/assets/00db529e-8eea-426b-b0a1-2e179652b4b7" />
+
+
 These results indicate strong predictive performance.  
-We also evaluated the model using the R² score, which measures the proportion of variance in the target variable explained by the model. The Random Forest Regression model achieved an R² score of approximately 0.71, meaning it was able to explain around 71% of the variability in
+We also evaluated the model using the R² score, which measures the proportion of variance in the target variable explained by the model. The Random Forest Regression model achieved an R² score of approximately 0.71, meaning it was able to explain around 71% of the variability in listing prices. 
 
 
 ### Actual Price vs Predicted Price - A scatterplot of each listings actual price vs our models predicted price.
