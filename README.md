@@ -57,6 +57,29 @@ You can also run tasks separately:
     make clean
     ```
 
+
+---
+
+### How to Test the Code
+
+This project uses the output metrics (MSE, RMSE, R²) and visual validation to evaluate prediction performance.
+
+You can regenerate results and visualizations at any time:
+
+```bash
+make run         # Re-runs model training
+make visualize   # Re-renders visualizations
+pytest test_airbnb.py --verbose #To test our written tests
+```
+
+For cleanup:
+
+```bash
+make clean
+```
+
+
+
 ## Project Structure
 
 - `Final_project_RandomForest.py` — Code to train and evaluate the Random Forest model.
@@ -187,6 +210,13 @@ These results indicate strong predictive performance.
 We also evaluated the model using the R² score, which measures the proportion of variance in the target variable explained by the model. The Random Forest Regression model achieved an R² score of approximately 0.71, meaning it was able to explain around 71% of the variability in
 
 
+### Actual Price vs Predicted Price - A scatterplot of each listings actual price vs our models predicted price.
+![My Plot](graphs/Actual_Predicted.png)
+  - Observations: We see that the most dense area of the graph is where price < $400 meaning most listings remain in that range. We also note that this is the range where our predictions were most accurate, with a roughly equivalent number of listings being under or over predicted.
+From $400 to $1000, we see that almost every single listing was underpredicted. 
+
+
+
 ---
 ## Visualizing the data: 
 
@@ -226,14 +256,6 @@ We also evaluated the model using the R² score, which measures the proportion o
  ![My Plot](graphs/map_plot.png)
 
 
-
----
-### Actual Price vs Predicted Price - A scatterplot of each listings actual price vs our models predicted price.
-![My Plot](graphs/Actual_Predicted.png)
-  - Observations: We see that the most dense area of the graph is where price < $400 meaning most listings remain in that range. We also note that this is the range where our predictions were most accurate, with a roughly equivalent number of listings being under or over predicted.
-From $400 to $1000, we see that almost every single listing was underpredicted. 
-
-
 ---
 ### Amenities Tree Map - Tree map of our normalized amenities.
 ![My Plot](graphs/Amenities_treemap.png)
@@ -271,3 +293,30 @@ From $400 to $1000, we see that almost every single listing was underpredicted.
 "CS506 Final Project.mp4"
 or 
 https://youtu.be/i0HKWSJIwBM
+
+
+
+---
+
+## Supported Environments
+
+- **Python Version:** 3.9.9  
+- **Operating Systems:** macOS, Linux, Windows  
+- **Libraries:** See `requirements.txt` for:
+  - pandas, numpy, sklearn, matplotlib, seaborn, etc.
+
+
+## How to Contribute
+
+1. Fork the repository  
+2. Create a new branch:  
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Make your changes  
+4. Commit with a clear message:  
+   ```bash
+   git commit -m "Add feature"
+   ```
+5. Push and create a Pull Request
+
