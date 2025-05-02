@@ -91,6 +91,8 @@ make clean
 ## 📽️ Video Presentation
 
 Watch the YouTube video by clicking on the image below or through this link: https://youtu.be/i0HKWSJIwBM
+- Slides are available here: https://docs.google.com/presentation/d/19pi1JXoRr79x2JrkvQs2HIOteJBz0OEifqQLZt1Y-Ck/edit?usp=sharing
+- 
 
 [![Watch the demo](https://img.youtube.com/vi/i0HKWSJIwBM/maxresdefault.jpg)](https://youtu.be/i0HKWSJIwBM)
 
