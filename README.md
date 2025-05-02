@@ -191,53 +191,74 @@ We also evaluated the model using the R² score, which measures the proportion o
 ## Visualizing the data: 
 
 
- - Top 20 Feature Importances - Bar chart of the top 20 features sorted by the Random Forest’s built-in importance.
+---
+### Top 20 Feature Importances - Bar chart of the top 20 features sorted by the Random Forest’s built-in importance.
 ![My Plot](graphs/Top20.png)
   - Observations: This graphs shows us the top 20 features that our model relies on the most. Entire home/apt and Private room are the features that had the strongest impact on our predictions. Understanding this ranking helped guide further feature engineering.
 
- - Price Distribution - Raw price distribution histogram vs Log transformed price distribution.
+---
+### Price Distribution - Raw price distribution histogram vs Log transformed price distribution.
 ![My Plot](graphs/Price_distribution.png)
   - Observations: We knew that raw prices would be heavily skewed to the right due to the nature of AirBnb prices. Therefore, we had decided that log transforming the price would be necessary in order to have a more normalized distribution of prices. We see after the transformation that the distribution is much more bell shaped as we were hoping. 
 
 
- - Bar Chart - Highlight key features affecting price.
+
+---
+### Bar Chart - Highlight key features affecting price.
 ![My Plot](graphs/bar_chart.png)
 
 
- - Scatter Plot - Compare price vs. bedrooms/bathrooms.
+
+---
+### Scatter Plot - Compare price vs. bedrooms/bathrooms.
  ![My Plot](graphs/scatter_plot.png)
 
 
- - Heatmap - Show feature correlations.
+
+---
+### Heatmap - Show feature correlations.
 ![My Plot](/graphs/Heatmap.png)
 
 
- - Map Plot - Visualize prices across NYC neighborhoods.
+
+---
+### Map Plot - Visualize prices across NYC neighborhoods.
  ![My Plot](graphs/map_plot.png)
 
 
- - Actual Price vs Predicted Price - A scatterplot of each listings actual price vs our models predicted price.
+
+---
+### Actual Price vs Predicted Price - A scatterplot of each listings actual price vs our models predicted price.
 ![My Plot](graphs/Actual_Predicted.png)
   - Observations: We see that the most dense area of the graph is where price < $400 meaning most listings remain in that range. We also note that this is the range where our predictions were most accurate, with a roughly equivalent number of listings being under or over predicted.
 From $400 to $1000, we see that almost every single listing was underpredicted. 
 
- - Amenities Tree Map - Tree map of our normalized amenities.
+
+---
+### Amenities Tree Map - Tree map of our normalized amenities.
 ![My Plot](graphs/Amenities_treemap.png)
   - Observations: We see 13 amenities that are the most prevalent; the most notable ones being wifi, oven, conditioner, shampoo, oven, and workspace. Niche amenities like gym, children_amenities, and sound_system have smaller blocks (meaning lower prevalence) but noticeably higher average prices, suggesting strong impact on value. 
 
- - MSE Amenities - An interactive 3-dimensional surface of our MSE on amenity_count.
+
+---
+### MSE Amenities - An interactive 3-dimensional surface of our MSE on amenity_count.
 ![My Plot](graphs/MSE_amenities.png)
   - Observations: This interactive plot shows how sensitive the error is to a given w/b when modeling just one feature. We see that our MSE is lowest and most optimal where the value of w ranges from -0.2 to 0.2. The absolute lowest point of MSE on the graph is where b is about 3.5 which tells us that tells us that our baseline price is about $32/night if no amenities are counted. Combined with a broad/flat shape in b, this confirms that amenity_count alone has a weak impact on our predictions. Even a model that completely ignores amenity_count can perform almost just as well. This allows us to conclude that the baseline price is almost always more impactful than any unique amenities offered.
 
- - MSE Bedrooms - An interactive 3-dimensional surface of our MSE on bedrooms.
+
+---
+### MSE Bedrooms - An interactive 3-dimensional surface of our MSE on bedrooms.
 ![My Plot](graphs/MSE_bedrooms.png)
   - Observations: On initial glance, this graph looks almost identical to the Amenities MSE graph. The graph also has a broad/flat shape in b while the deepest part of the bowl/ridge in the graph is when w ranges from 0 to -1. Like the amenity_count, bedrooms is not a strong independent feature in our model; and the baseline price is almost always more impactful. An interesting thing to note after observing this graph, however, is the fact that although bedrooms may not be a strong feature on its own, the fact that it is our 4th most important feature indicates that it is imperative when it comes to our models prediction. It becomes critical when interacting with other features during training and predictions, as it is able to provide strong indications such that groupings are tighter and more accurate.
 
- - MSE Roomtypes - A bar chart showing the Mean Squared Error (dollars²) of our model’s predictions, grouped by room_type.
+
+---
+### MSE Roomtypes - A bar chart showing the Mean Squared Error (dollars²) of our model’s predictions, grouped by room_type.
 ![My Plot](graphs/MSE_roomtype.png)
   - Observations: Private rooms have the lowest MSE. This means that our model predicts those most accurately. Entire home/apartments is next most accurate, then shared rooms, and finally hotel rooms. Hotel rooms have the highest MSE, indicating our model is least reliable there.
 
- - Linked Scatter Matrix - A linked scatter‐matrix showing every pairwise scatter plot with points colored by room_type.
+---
+### Linked Scatter Matrix - linked scatter‐matrix showing every pairwise scatter plot with points colored by room_type.
 ![My Plot](graphs/linked_scatter_matrix.png)
  - Notable observations:
   - Number of Reviews vs. Amenity Count: Although there is no strong notable linear pattern, we are able to observe that the highest number of reviews is when the amenity count is around 5 to 7. Overall, we see that listings with a lot of amenities often cluster at moderate review counts. 
