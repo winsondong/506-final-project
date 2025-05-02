@@ -65,8 +65,13 @@ You can also run tasks separately:
 - `Makefile` — Automation for building, running, and cleaning the project.
 
 
-## Video Presentation:
- - https://www.youtube.com/watch?v=lRojpqXUKZg
+## 📽️ Video Presentation
+
+Watch the YouTube video by clicking on the image below or through this link: https://youtu.be/i0HKWSJIwBM
+
+[![Watch the demo](https://img.youtube.com/vi/i0HKWSJIwBM/maxresdefault.jpg)](https://youtu.be/i0HKWSJIwBM)
+
+
 
 ## Project Proposal, Description, and Goals:
 
